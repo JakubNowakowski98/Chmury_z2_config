@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: zad2_chmury
-  name: zad2_chmury
+    app: zad2-chmury
+  name: zad2-chmury
 spec:
   replicas: 4
   strategy:
@@ -13,14 +13,14 @@ spec:
       maxUnavailable: 2
   selector:
     matchLabels:
-      app: zad2_chmury
+      app: zad2-chmury
   template:
     metadata:
       labels:
-        app: zad2_chmury
+        app: zad2-chmury
     spec:
       containers:
-      - name: zad2_chmury
+      - name: zad2-chmury
         image: it02nowakowski/zad2_chmury:1.0
         ports:
           - name: http

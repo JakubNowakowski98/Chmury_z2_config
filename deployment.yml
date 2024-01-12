@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zad2_chmury
+  name: zad2_chmury
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 5
+      maxUnavailable: 2
+  selector:
+    matchLabels:
+      app: zad2_chmury
+  template:
+    metadata:
+      labels:
+        app: zad2_chmury
+    spec:
+      containers:
+      - name: zad2_chmury
+        image: it02nowakowski/zad2_chmury:1.0
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+        resources: {}
